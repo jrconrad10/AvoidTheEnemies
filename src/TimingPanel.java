@@ -1,10 +1,11 @@
 // Jacob Conrad and Jack Handy, Final Project, May 5, TimingPanel class extends JPanel.
-// This class has a border layout that contains the pause and start buttons.
+// This class has a border layout that contains the pause button, start button, and a lives label.
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TimingPanel extends JPanel {
@@ -12,6 +13,7 @@ public class TimingPanel extends JPanel {
 	private GameBoard gameBoard;
 	private JButton start;
 	private JButton pause;
+	private JLabel lives;
 	
 	// TimingPanel constructor
 	public TimingPanel(GameBoard gameBoard) {
@@ -19,12 +21,15 @@ public class TimingPanel extends JPanel {
 		this.gameBoard = gameBoard;
 		pause = new JButton("pause");
 		start = new JButton("start");
+		lives = new JLabel(gameBoard.getLives() + " lives", 0);
 		
+		lives.setFocusable(false);
 		start.setFocusable(false);
 		pause.setFocusable(false);
 
-		this.add(pause, BorderLayout.NORTH);
-		this.add(start, BorderLayout.CENTER);
+		this.add(lives, BorderLayout.NORTH);
+		this.add(pause, BorderLayout.CENTER);
+		this.add(start, BorderLayout.SOUTH);
         
         start.addActionListener(new ActionListener() {
 
@@ -64,5 +69,11 @@ public class TimingPanel extends JPanel {
 	public void showPauseButton()
 	{
 		pause.setVisible(true);
+	}
+	
+	// Changes the number of lives in the label
+	public void changeLives()
+	{
+		lives.setText(gameBoard.getLives() + " lives");
 	}
 }

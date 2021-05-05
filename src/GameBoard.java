@@ -155,6 +155,7 @@ public class GameBoard extends JPanel {
 					{
 						enemies.remove(i);
 						lives = lives - 1;
+						app.changeLives();
 					}
 					// If lives is 0 or less the user lost, the baord is cleared, and a losing message is printed
 					if(lives <= 0)
@@ -229,6 +230,12 @@ public class GameBoard extends JPanel {
 	public void setPaused()
 	{
 		paused = !paused;
+	}
+	
+	// Gets lives
+	public int getLives()
+	{
+		return lives;
 	}
 	
 	// Gets the current difficulty

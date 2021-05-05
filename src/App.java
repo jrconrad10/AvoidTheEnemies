@@ -76,6 +76,12 @@ public class App extends JFrame {
 	{
 		timingPanel.showPauseButton();
 	}
+	
+	// Calls timing panel's changeLives method
+	public void changeLives()
+	{
+		timingPanel.changeLives();
+	}
 
 	// Main method, creates app object
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {

@@ -32,11 +32,11 @@ public class ControlPanel extends JPanel {
 			@Override
 			// Resets the game back to the main menu
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				gameBoard.setToDefault();
 				avatarPanel.setVisible(true);
 				difficultyPanel.setVisible(true);
 				timingPanel.showStart();
+				timingPanel.changeLives();
 			}			
 		});
 	}
